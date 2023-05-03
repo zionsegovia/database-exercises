@@ -18,26 +18,19 @@ SHOW TABLES;
 # SELECT * FROM salaries WHERE salary BETWEEN 50000 AND 100000;
 # SELECT * FROM salaries WHERE salary NOT BETWEEN 50000 AND 100000;
 
-# PART ONE
-# TODO: Find all employees with first names 'Irena', 'Vidya', or 'Maya' — 709 rows (Hint: Use IN).
 SELECT * FROM employees WHERE first_name IN ('Irena', 'Vidya', 'Maya');
 
-# TODO: Find all employees whose last name starts with 'E' — 7,330 rows.
 SELECT * FROM employees WHERE last_name LIKE 'E%';
 
-# TODO: Find all employees with a 'q' in their last name — 1,873 rows.
 SELECT * FROM employees WHERE last_name LIKE '%q%';
 
 
-# PART TWO
-# TODO: Update your query for 'Irena', 'Vidya', or 'Maya' to use OR instead of IN — 709 rows.
 SELECT *
 FROM employees
 WHERE first_name = 'Irena'
    OR first_name = 'Vidya'
    OR first_name = 'Maya';
 
-# TODO: Add a condition to the previous query to find everybody with those names who is also male — 441 rows.
 SELECT *
 FROM employees
 WHERE (first_name = 'Irena'
@@ -45,7 +38,7 @@ WHERE (first_name = 'Irena'
     OR first_name = 'Maya')
   AND gender = 'M';
 
-# TODO: Find all employees whose last name starts or ends with 'E' — 30,723 rows.
+
 SELECT *
 FROM employees
 WHERE last_name LIKE 'E%'
@@ -61,20 +54,4 @@ SELECT *
 FROM employees
 WHERE last_name LIKE '%q%'
   AND last_name NOT LIKE '%qu%';
-
-# **FUNCTIONS**
-use employees;
-
-# concat function
-SELECT CONCAT (first_name, ' ', last_name) FROM employees WHERE first_name = 'Maya';
-
-# date and time functions
-SELECT DAYOFMONTH(hire_date) FROM employees WHERE first_name = 'Maya';
-
-SELECT DATEDIFF(NOW(), hire_date)/365 FROM employees LIMIT 50;
-
-# nested functions
-SELECT MINUTE(NOW());
-SELECT SECOND(NOW());
-
 
