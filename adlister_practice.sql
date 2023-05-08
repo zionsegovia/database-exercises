@@ -1,17 +1,17 @@
-# Create a new database
+
 CREATE DATABASE adlisterbp_db;
 
-# Switch to the new database
+
 USE adlisterbp_db;
 
-# Create the users table
+
 CREATE TABLE users (
                        id INT NOT NULL AUTO_INCREMENT,
                        email VARCHAR(60) NOT NULL,
                        PRIMARY KEY (id)
 );
 
-# Create the category table
+
 CREATE TABLE category (
                           id INT NOT NULL AUTO_INCREMENT,
                           name VARCHAR(60) NOT NULL,
@@ -20,7 +20,6 @@ CREATE TABLE category (
                           CONSTRAINT fk_parent_id FOREIGN KEY (parent_id) REFERENCES category(id)
 );
 
-# Create the ad_lister table
 CREATE TABLE ad_lister (
                            id INT NOT NULL AUTO_INCREMENT,
                            title VARCHAR(50) NOT NULL,
